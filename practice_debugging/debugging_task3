@@ -1,0 +1,76 @@
+
+name_list = []
+mark_list = []
+dist_list = []
+pass_list = []
+fail_list = []
+count = 0 # 1 changed count from 1 to 0
+
+flag = True
+while flag == True: # 2 # changed from False to True
+    name = input(f"Enter student's name ") # 3 unterminated string 
+    name_list += [name]
+    while True:
+        mark = int(input('Enter score of student: '))
+        # print(f'mark is {mark}')
+        if mark >= 0 and mark <= 100: # 4 changed or to and
+            break
+        else:
+            print('Invalid mark!')
+    mark_list += [mark] # 5 removed indetentation 
+    # print(f'mark_list is {mark_list}')
+    count += 1
+    if mark >= 75: # 6 added = to > to form >=
+        dist_list += [name]
+    elif mark >= 50:
+        pass_list += [name]
+    else:
+        fail_list += [name] # 7 changed (name) to [name] for proper adding of list
+    more = input('Would you like to enter another score, Y or N?: ') # 8 removed int()
+    if more == 'N':
+        flag = False
+print(f'mark list {mark_list}')
+average = round(sum(mark_list)/len(mark_list), 2) # 9 changed max() to sum()
+num_dist = len(dist_list)
+num_fail = len(fail_list)
+print("You entered " + str(count) + " scores.") # 10 added str() to int count
+print(str(num_dist) + " students score distinction and " + str(num_fail) + " students failed.")
+print("Average score is " + str(average))
+
+
+
+
+# name_list = []
+# mark_list = []
+# dist_list = []
+# pass_list = []
+# fail_list = []
+# count = 1
+
+# flag = True
+# while flag == False:
+#     name = input('Enter student's name: ')
+#     name_list += [name]
+#     while True:
+#         mark = int(input('Enter score of student: '))
+#         if mark >= 0 or mark <= 100:
+#             break
+#         else:
+#             print('Invalid mark!')
+#         mark_list += [mark]
+#     count += 1
+#     if mark > 75:
+#         dist_list += [name]
+#     elif mark >= 50:
+#         pass_list += [name]
+#     else:
+#         fail_list += (name)
+#     more = int(input('Would you like to enter another score, Y or N?: '))
+#     if more == 'N':
+#         flag = False
+# average = round(max(mark_list)/len(mark_list), 2)
+# num_dist = len(dist_list)
+# num_fail = len(fail_list)
+# print("You entered " + count + " scores.")
+# print(str(num_dist) + " students score distinction and " + str(num_fail) + " students failed.")
+# print("Average score is " + str(average))
